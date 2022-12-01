@@ -24,7 +24,6 @@ def normalizza_vettore(vettore:list):
 	vettore_normalizzato = []
 	norma = calcola_norma(vettore)
 	for i in range(len(vettore)):
-		print(i)
 		vettore[i] = vettore[i] / norma
 		
 	
@@ -55,11 +54,9 @@ def algoritmo(base_partenza, base_ortonormale):
 	base_temp = copy(base_partenza)
 
 	base_ortonormale[0] = normalizza_vettore(base[0])
-	print(base_ortonormale[0])
 
 
 	while(i < len(base_partenza)):
-		print(i)
 		while j < i:
 			base_temp.append(base_ortonormale[j])
 
@@ -70,19 +67,12 @@ def algoritmo(base_partenza, base_ortonormale):
 
 	return base_ortonormale
 
+def stampa_base(base):
+	i = 0
+	j = 0
+	for vettore in base:
+		print(vettore)
+		
+
 print("Ecco la tua base ortonormale")
-prova = algoritmo(base, base_ortonormale)
-
-norma1 = calcola_norma(prova[0])
-norma3 = calcola_norma(prova[1])
-norma2 = calcola_norma(prova[2])
-
-print(norma1, norma2, norma3)
-print("\n")
-
-
-v1 = [1,2,3]
-v2 = [0,1,2]
-
-print(prodotto_scalare(base_ortonormale[0], base_ortonormale[1]))
-print(prodotto_scalare(base_ortonormale[1], base_ortonormale[2]))
+stampa_base(algoritmo(base, base_ortonormale))
